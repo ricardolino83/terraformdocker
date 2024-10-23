@@ -135,8 +135,12 @@ resource "aws_dynamodb_table" "cloudmart_tickets" {
 # AMI Criando a maquina EC2 na AWS
 
 resource "aws_instance" "ec2_instance" {
-  ami           = "ami-06b21ccaeff8cd686"  # AMI Amazon Linux 2 para us-east-1
-  instance_type = "t2.micro"
+  ami                         = "ami-06b21ccaeff8cd686"  # AMI Amazon Linux 2 para us-east-1
+  instance_type               = "t2.micro"
+  associate_public_ip_address = true
+  subnet_id                   = aws_subnet.my_subnet.id  # Certifique-se de associar à sub-rede criada
+  vpc_security_group_ids      = [aws_security_group.instance_sg.id]  # Referência ao grupo de segurança
+
 
   # Definindo IP público
   associate_public_ip_address = true

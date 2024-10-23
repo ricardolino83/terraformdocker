@@ -138,6 +138,7 @@ resource "aws_instance" "ec2_instance" {
 
 # Security Group para permitir SSH, HTTP e comunicação da Backend com Frontend
 resource "aws_security_group" "instance_sg" {
+  vpc_id = "vpc-06f07f3a420fee5d3"
   name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
 

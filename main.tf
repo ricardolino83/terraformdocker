@@ -53,7 +53,7 @@ resource "aws_route_table_association" "my_route_table_assoc" {
 
 # Security Group para permitir SSH e HTTP
 resource "aws_security_group" "instance_sg" {
-  vpc_id = "vpc-06f07f3a420fee5d3"
+  vpc_id = aws_vpc.my_vpc.id
   name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
 

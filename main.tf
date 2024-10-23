@@ -136,7 +136,7 @@ resource "aws_instance" "ec2_instance" {
   }
 }
 
-# Security Group para permitir SSH e HTTP
+# Security Group para permitir SSH, HTTP e comunicação da Backend com Frontend
 resource "aws_security_group" "instance_sg" {
   name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
